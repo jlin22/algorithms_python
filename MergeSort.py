@@ -5,11 +5,6 @@ def sorted(array):
             return False
     return True
 
-def swap(array, p, q):
-    temp = array[p]
-    array[p] = array[q]
-    array[q] = temp
-
 def merge(array, aux, low, mid, high):
     """Merges low->mid, (mid+1)->high"""
     #create i (tracker for array low->mid), j (tracker for array (mid+1)->high)
@@ -36,6 +31,7 @@ def merge(array, aux, low, mid, high):
         array[x] = aux[x]
 
 def sort(array, aux, low, high):
+    """Recursive method for sorting the array from low->high(inclusive)"""
     if high <= low:
         return
     mid = (high + low) // 2
@@ -44,6 +40,7 @@ def sort(array, aux, low, high):
     merge(array, aux, low, mid, high)
 
 def MergeSort(array):
+    """Performs merge sort on the array"""
     aux = array.copy()
     sort(array, aux, 0, len(array) - 1)
 
@@ -52,5 +49,7 @@ a = [1, 6, 3, 4]
 aux = a.copy()
 merge(a, aux, 0, 1, 3)
 print(a)
+aux_unsorted = unsorted.copy()
 
-#MergeSort(unsorted)
+MergeSort(unsorted)
+print(unsorted)
