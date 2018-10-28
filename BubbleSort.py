@@ -14,9 +14,13 @@ def BubbleSort(array):
     """Uses bubble sort to return the sorted array"""
     for i in reversed(range(len(array))):
         #the array from i + 2 to the end is already sorted
+        swapped = False
         for j in range(i):
             if array[j] > array[j + 1]:
                swap(array, j, j + 1)
+               swapped = True
+        if not swapped:
+            break
         #array[i + 1] (the end) is in the correct spot, along with i + 2 to the end
     assert(sorted(array))
 
